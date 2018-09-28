@@ -25,7 +25,7 @@
              </bean>
 
 
-             <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
          <property name="driverClassName" value="${db.driverClassName}"/>
          <property name="url" value="${db.url}"/>
          <property name="username" value="${db.username}"/>
@@ -79,7 +79,7 @@
      </bean>
 
              <!-- mybatis扫描dao层 -->
-             <bean name="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+     <bean name="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
          <property name="basePackage" value="com.mmall.dao"/>
      </bean>
 
@@ -92,4 +92,4 @@
      </bean>
 
 
-         </beans>
+   </beans>

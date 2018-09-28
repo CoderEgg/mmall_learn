@@ -1,20 +1,26 @@
 package com.mmall.dao;
 
 import com.mmall.pojo.Product;
-import com.mmall.pojo.ProductWithBLOBs;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface ProductMapper {
     int deleteByPrimaryKey(Integer id);
 
-    int insert(ProductWithBLOBs record);
+    int insert(Product record);
 
-    int insertSelective(ProductWithBLOBs record);
+    int insertSelective(Product record);
 
-    ProductWithBLOBs selectByPrimaryKey(Integer id);
+    Product selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(ProductWithBLOBs record);
-
-    int updateByPrimaryKeyWithBLOBs(ProductWithBLOBs record);
+    int updateByPrimaryKeySelective(Product record);
 
     int updateByPrimaryKey(Product record);
+
+    List<Product> selectList();
+
+    List<Product> selectByProductNameAndProductId(@Param("productName") String productName, @Param("productId") Integer productId);
+
+    List<Product> selectByNameAndCategoryIds(@Param(value="productName") String productName,@Param(value="categoryIdList") List<Integer> categoryIdList);
 }
